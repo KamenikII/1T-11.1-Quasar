@@ -79,7 +79,7 @@ module.exports = configure(function (ctx) {
       server: {
         type: 'http'
       },
-      port: 8080,
+      port: 8000,
       // watchOptions: {
       //   poll: 1000 // Check for changes every second
       // },
