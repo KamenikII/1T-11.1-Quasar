@@ -1,8 +1,11 @@
 <template>
+<router-view />
   <q-page class="bg-green-3 column">
     <div class="row q-pa-sm bg-primary">
       <q-input
-        filled square dense
+        filled
+        square
+        dense
         @keyup.enter="addTask"
         class="col"
         bg-color="white"
@@ -48,6 +51,13 @@
         </q-item-section>
       </q-item>
     </q-list>
+    <div 
+    class="no-task absolute-center"
+    v-if="!tasks.length"
+    >
+      <q-icon name="warning" size="150px" color="warning"></q-icon>
+      <div class="text-h4 text-warning text-center">It is empty</div>
+    </div>
   </q-page>
 </template>
 
@@ -55,20 +65,20 @@
 export default {
   data() {
     return {
-      newTask: '',
+      newTask: "",
       tasks: [
-        {
-          title: "hello world",
-          done: false,
-        },
-        {
-          title: "2",
-          done: false,
-        },
-        {
-          title: "3",
-          done: false,
-        },
+        // {
+        //   title: "hello world",
+        //   done: false,
+        // },
+        // {
+        //   title: "2",
+        //   done: false,
+        // },
+        // {
+        //   title: "3",
+        //   done: false,
+        // },
       ],
     };
   },
@@ -90,9 +100,9 @@ export default {
     addTask() {
       this.tasks.push({
         title: this.newTask,
-        done: false
-      }) 
-      this.newTask = ''
+        done: false,
+      });
+      this.newTask = "";
     },
   },
 };
@@ -104,5 +114,9 @@ export default {
     text-decoration: line-through;
     color: grey;
   }
+}
+
+.no-task {
+  opacity: 0.5;
 }
 </style>
